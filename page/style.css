@@ -1,0 +1,628 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+:root{
+    --cor-text-player: rgb(255, 255, 255);
+    --sombra-text-player: 0px 0px 5px rgba(0, 0, 0, 0);
+    --font-family-terminal:Consolas,"Cascadia Code", "JetBrains Mono", monospace;
+}
+.Stransmissao{
+    width: 100%;
+    height: 100dvh;
+    background-color: orange;
+    display: flex;
+    
+}
+/* ============PLAYER============ */
+.Cplayer{
+    flex: 1;
+    display: flex;
+    background-color: black;
+    
+}
+.boxPlayer{
+    width: 100%;
+    height: 100%;
+    /* background-color: orange; */
+    position: relative;
+}
+.player{ /* player do video */
+    width: 100%;
+    height: 100%;
+    /* background-color: rgb(255, 255, 255); */
+    object-fit: contain;
+    display: none; /*block*/
+    aspect-ratio: 16/9;
+}
+.imgPadraoPlayer{
+    width: 100%;
+    height: 100%;
+    /* background-color: rgb(255, 255, 255); */
+    object-fit: contain;
+    display: block; /*block*/
+    aspect-ratio: 16/9;
+}
+
+/* ============BOTOES NO PLAYER============ */
+.boxCbtnsPlayer{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(255, 0, 0, 0.096); */
+    display: flex; /*flex*/
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.box2CbtnsPlayer{
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(255, 166, 0, 0.151); */
+}
+.box3CbtnsPlayer{
+    /* background-color: blue; */
+    width: 100%;
+    height: 100%;
+    display: grid;
+
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto 1fr auto;
+
+    grid-template-areas:
+        "topo topo topo"
+        "esquerda centro direita"
+        "baixo baixo baixo"
+    ;
+
+    /* gap: 5px; */
+}
+.CbtnsPlayertopo{
+    grid-area: topo;
+    /* background: rgba(0, 132, 255, 0.219); */
+}
+
+.CbtnsPlayeresquerda{
+    grid-area: esquerda;
+    /* background: rgba(0, 0, 255, 0.329); */
+}
+
+.CbtnsPlayercentro{
+    grid-area: centro;
+    /* background: white; */
+}
+
+.CbtnsPlayerdireita{
+    grid-area: direita;
+    /* background: green; */
+}
+
+.CbtnsPlayerbaixo{
+    grid-area: baixo;
+    /* background: orange; */
+}
+
+.CbtnControlTelaMU{
+    /* width: 100%; */
+     height: 100%;
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.CbtnControlTelaMUBox1{
+    /* width: 4vmin; */
+    /* aspect-ratio: 1/1; */
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.svgBtnToggleMU{
+    width: 30px; /*4vmin*/
+    fill: white;
+    cursor: pointer;
+    rotate: 180deg;
+}
+
+
+.CbtnsPlayerbaixoBox1{
+    /* width: 100%;
+    height: 100%; */
+    /* background-color: red; */
+    display: flex;
+}
+.CbtnsPlayerbaixoItem{
+    /* height: 100%;
+    aspect-ratio: 1/1; */
+    /* background-color: orange; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.CbtnsPlayerbaixoItem2{
+    flex: 1;
+    /* background-color: rgb(156, 117, 45); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+}
+.PlayerbaixoBox1{
+    /* height: 100%;
+    width: 10%; */
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.CbtnDesligar{
+    border-radius: 50%;
+    padding: 3px;
+    /* background-color: red; */
+}
+
+/* PARTE ESQUERDA DOS CONTROLES DO PLAYER  */
+.PlayeresquerdaBox1{
+    height: 100%;
+    width: 4vmin;
+    /* background-color: rgb(212, 0, 255); */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.PlayeresquerdaBox2{
+    /* background-color: red; */
+    width: 100%; 
+    height: 25vmin;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+}
+
+.volumeTrilha{
+    width: 40%;
+    height: 100%;
+    background-color: #b9b9b9;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+}
+.vlumeBotão{
+    width: 3vmin; /*190%*/
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: #ffffff;
+    /* border: solid 3px #00ac00; */
+    flex-shrink: 0; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    
+}
+.CiconVolume{
+    /* background-color: orange; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.CtextVolume{
+    /* background-color: orange; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.textVolume{
+    width: 100%;
+    font-size: 15px; /*2.5vmin*/
+    text-align: center;
+    /* background-color: #00ac00; */
+    white-space: nowrap;
+    overflow: hidden;
+    color: white;
+}
+
+
+
+
+/* PARTE SUPERIOR DOS CONTROLES DO PLAYER */
+.CbtnsPlayertopoBox1{
+    width: 100%;
+    height: 4vmin;
+    /* background-color: orange; */
+    display: flex;
+    gap: 3px;
+}
+.CplayerTopo-Item.minimo {
+    width: 40%; 
+    /* background-color: blue; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.CplayerTopo-Item.flexible {
+    flex: 1; 
+    /* background-color: rgb(128, 30, 0); */
+    display: flex;
+    justify-content: end;
+    gap: 2px;
+}
+
+.textPlayerTopoNomeTela{
+    width: 100%;
+    font-size: 3vmin;
+    text-align: start;
+    /* background-color: #00ac00; */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--cor-text-player);
+    text-shadow: var(--sombra-text-player);
+}
+
+.playerTopo-Item2{
+    /* aspect-ratio: 1/1; */
+    height: 100%;
+    /* background-color: #999; */
+    margin-left: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.textPingPLayer{
+    color: white;
+    font-size: 2.5vmin;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--cor-text-player);
+    text-shadow: var(--sombra-text-player);
+    
+}
+
+
+
+
+
+.svgBtnPlayer{
+    width: 25px; /*4vmin - isso controla tamanho dos icones do controle player*/
+    fill: white;
+    cursor: pointer;
+    text-shadow: var(--sombra-text-player);
+}
+
+
+.corRed{
+    fill: red;
+}
+
+
+
+
+/* ==========TELA MULTIUSO========== */
+.CmultiUso{
+    width: 20%;
+    max-width: 40%;
+    min-width: 10%;
+    height: 100dvh;
+    display: block; /*block*/
+    background-color: rgb(142, 202, 255);
+    overflow: hidden;
+}
+.multiuso{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(185, 185, 185);
+    /* border-radius: 30px; */
+    display: flex;
+    flex-direction: column;
+}
+.CcabeçaDeAlho{
+    width: 100%;
+    /* height: 200px; */
+    background-color: orange;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    /* box-shadow: 0px 0px 10px #00ac00(122, 122, 122, 0.726); */
+}
+.Cfoto{
+    /* width: 100%; */
+    /* aspect-ratio: 1/1; */
+    /* border-radius: 50%; */
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    overflow: hidden;
+}
+.foto{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+/* controles da tela multiuso */
+.CcontrolesTela{
+    width: 100%;
+    height: 4.5vmin; /*5%*/
+    max-height: 40px;
+    /* background-color: rgb(255, 8, 0); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.boxct{
+    /* flex: 1; */
+    height: 100%;
+    /* background-color: red; */
+}
+.boxct1{
+    width: 100%;
+    height: 100%;
+    /* background-color: orange; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.iconBoxct{
+    height: 80%;
+    aspect-ratio: 1/1;
+    background-color:rgb(236, 236, 236);
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    cursor: pointer;
+}
+.svgBoxct{
+    fill: green;
+    width: 100%;
+}
+
+.Cchamada{
+    background-color: rgb(185, 185, 185);
+    border-radius: 7px;
+}
+.Cchat{
+    background-color: #00ac00 ;
+    flex: 1;
+    border-radius: 7px;
+}
+.Cconfig{
+    background-color: #b9b9b9;
+    border-radius: 7px;
+}
+
+/* _________Bar__________ */
+.Cbar{
+    width: 100%;
+    height: 40px;
+    background-color: #00ac00;
+    display: flex;
+    /* justify-content:center; */
+    align-items: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.CiconBackBar{
+    height: 100%;
+    aspect-ratio: 1/1;
+    /* background-color: orange; */
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.CboxVazio{
+    height: 100%;
+    aspect-ratio: 1/1;
+    /* background-color: orange; */
+    flex-shrink: 0;
+}
+.textNomeTMU{
+    text-align: center;
+    color: white;
+    flex: 1;
+    font-family:var(--font-family-terminal);
+
+    min-width: 0; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.svgIconBackBar{
+    max-width: 60%;
+    cursor: pointer;
+}
+/* ___________________ABA DE CALL DA TELA2___________________ */
+.Ccall{
+    width: 100%;
+    height: 100%;
+    background-color: orange;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.infoCall {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.infoCall > span:first-of-type {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.btnSpanInfo {
+    flex-shrink: 0;
+}
+
+.btnSpanInfo button {
+    white-space: nowrap;
+}
+
+
+
+
+
+/* ___________________ABA CHAT___________________ */
+.CchatBox{
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    /* background-color: orange; */
+    display: none; /*flex*/
+    flex-direction: column;
+}
+.CboxMsgChat{
+    flex: 1;
+    /* background-color: red; */
+}
+/* input chat */
+.CinputChat{
+    width: 100%;
+    height: 40px;
+    /* background-color: #424242; */
+    display: flex;
+}
+
+.inputChat{
+    flex: 1;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+}
+.btnEnviarmsg{
+    height: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    margin-left: 5px;
+    background-color: #00ac00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.svgBtnChat{
+    fill: white;
+    width: 70%;
+}
+/* ___________________ABA DEV___________________ */
+.Cdev{
+    width: 100%;
+    height: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+    display: block; /*block*/
+    display: flex;
+    flex-direction: column;
+}
+.textInfoDevTIPO{
+    color: #424242;
+    font-family: var(--font-family-terminal);
+    font-size: 15px;
+}
+.textInfoDev{
+    width: 100%;
+    font-family: var(--font-family-terminal);
+    font-size: 14px;
+    /* background-color: orange; */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.resInfoDev{
+    font-size: 13px;
+}
+.textCopiarID{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.textStatusAlert{
+    width: 100%;
+    font-family: var(--font-family-terminal);
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    overflow-wrap: break-word;
+    display: none; /*block*/
+}
+.displayNone{
+    display: none;
+}
+
+/* APENAS COM O DISPOSITIVO EM MODO RETRATO (dispositivo movel) */
+@media (max-width:800px) and (orientation: portrait) {
+    .Stransmissao{
+        flex-direction: column;
+    }
+    .Cplayer{
+        width: 100%;
+        aspect-ratio: 16/9;
+        flex: none;
+        background-color: black;
+    }
+    .CbtnTelaMultiUso{
+        display: none;
+    }
+    .CmultiUso{
+        width: 100%;
+        max-width: 100%;
+        min-width: 0%;
+        background-color: rgb(142, 202, 255);
+    }
+    .CcabeçaDeAlho{
+        display: none;
+    }
+    .CcontrolesTela{
+        height: 8%;
+        
+        /* box-shadow: 0px 0px 5px rgba(122, 122, 122, 0.726); */
+    }
+   
+    
+}
+
+/* APENAS COM O DISPOSITIVO EM MODO PAISAGEM (pc) */
+@media (max-width:800px) and (orientation: landscape) {
+    .CmultiUso {
+        width: 30%; 
+    }
+    
+}
+
+
